@@ -9,6 +9,8 @@ let url_brisanje = "https://remajnder.rmk.cloud/api/v1/reminders/" // + reminder
 let uspesn_signup = false
 
 $(document).ready(function(){
+    $("#home_nav").hide();
+    $("#re_nav").hide(); 
     $('#btn_signup').click(function(){
         ime = document.getElementById("ime_signup").value
         email = document.getElementById("email_signup").value
@@ -48,6 +50,8 @@ function sign_up_user(name, email, phone, pass){
         if(xhr.status == 201 || xhr.status == 200){
             console.log("All good")
             uspesn_signup=true
+            $("#home_nav").show();
+            $("#re_nav").show(); 
         }
         else{
             console.log("Neka napaka")

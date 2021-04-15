@@ -8,6 +8,8 @@ let url_brisanje = "https://remajnder.rmk.cloud/api/v1/reminders/" // + reminder
 let uspesn_login = false
 
 $(document).ready(function(){
+    $("#home_nav").hide();
+    $("#re_nav").hide(); 
     $('#btn_login').click(function(){
         email = document.getElementById("email_login").value
         geslo = document.getElementById("password_login").value
@@ -40,6 +42,8 @@ function login_user(email, pass){
             if(xhr.status == 200 || xhr.status == 201){
                 console.log("All good")
                 uspesn_login=true
+                $("#home_nav").show();
+                $("#re_nav").show(); 
             }
             else{
                 console.log("Neka napaka")
