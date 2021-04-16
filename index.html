@@ -1,45 +1,59 @@
 <!DOCTYPE html>
-
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>REMAJNDER</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="LOGO.png">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="script_index.js"></script>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <!-- Sidebar/menu -->
-        <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
-            <div class="w3-container">
-            <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
-                <i class="fa fa-remove"></i>
-                </a>
-            <img src="LOGO.png" style="width:45%;" class="w3-round"><br><br>
-            <h4><b>REMAJNDER</b></h4>
-            </div>
-            <div class="w3-bar-block">
-            <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>MY REMAJNDER</a> 
-            <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
-            <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
-            </div>
-            <!--
-            <div class="w3-panel w3-large">
-            <i class="fa fa-facebook-official w3-hover-opacity"></i>
-            <i class="fa fa-instagram w3-hover-opacity"></i>
-            <i class="fa fa-snapchat w3-hover-opacity"></i>
-            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-        <i class="fa fa-twitter w3-hover-opacity"></i>
-            <i class="fa fa-linkedin w3-hover-opacity"></i>
-            </div>
-            -->
-        </nav>
-        <h1>REMAJNDER</h1>
-        <img src="LOGO.png" width="500" height="500">
-        <script src="" async defer></script>
-    </body>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="LOGO.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item active" id="home_nav">
+            <a class="nav-item nav-link active" href="index.html">HOME</a>
+        </li>
+        <li class="nav-item"  id="re_nav">
+            <a class="nav-item nav-link active" href="index.html">MY REMAJNDER</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item nav-link active" href="about.html">ABOUT</a>
+        </li>
+        </ul>
+        <span class="navbar-text">
+        <a class="nav-item nav-link active" href="login.html">LOGIN</a>
+        </span>
+        <span class="navbar-text">
+        <a class="nav-item nav-link active" href="signup.html">SIGN UP</a>
+        </span>
+    </div>
+</nav>
+    
+<h1>REMAJNDER</h1>
+
+<ul id="remajnders"></ul>
+
+<form onsubmit="return false">
+    <div class="container">
+        <label for="uname"><b>Title</b></label>
+        <input type="text" placeholder="Enter Title" name="title" id="title" required>
+
+        <label for="uname"><b>Description</b></label>
+        <input type="text" placeholder="Enter Description" name="title" id="desc" required>
+
+        <label for="psw"><b>Notify phone</b></label>
+        <input type="checkbox"  name="n_phone" id="n_phone">
+
+        <label for="psw"><b>Notify email</b></label>
+        <input type="checkbox"  name="n_email" id="n_email">
+            
+        <button type="submit" id="add_remajnder">Add</button>
+    </div>
+</form>
+
+</body>
 </html>

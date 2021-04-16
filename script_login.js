@@ -44,9 +44,10 @@ function login_user(email, pass){
                 uspesn_login=true
                 $("#home_nav").show();
                 $("#re_nav").show(); 
+                location.replace("index.html")
             }
             else{
                 console.log("Neka napaka")
             }
-        }, 2000);
+        }, 1000);
 }

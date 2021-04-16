@@ -52,6 +52,7 @@ function sign_up_user(name, email, phone, pass){
             uspesn_signup=true
             $("#home_nav").show();
             $("#re_nav").show(); 
+            location.replace("index.html")
         }
         else{
             console.log("Neka napaka")
