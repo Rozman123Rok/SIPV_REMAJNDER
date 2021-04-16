@@ -56,9 +56,11 @@ $(document).ready(function(){
 function dodaj_remajnder(title, desc, time, n_phone, n_email){
     var xhr = new XMLHttpRequest();
         xhr.open("POST", url_dodaj);
+        xhr.withCredentials = true;
         
         xhr.setRequestHeader("Accept", "application/json");
         xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Access-Control-Allow-Origin","*")
         
         xhr.onreadystatechange = function () {
            if (xhr.readyState === 4) {
@@ -88,11 +90,24 @@ function dodaj_remajnder(title, desc, time, n_phone, n_email){
 }
 
 function dobi_vse(){
-    console.log("Dobi vse")
+    console.log("Dobi vse")/*
     $.getJSON(url_vsi, function(result){
         console.log("res: " + result)
        prikazi_vse(result)
-    })
+    })*/
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('GET', url_vsi, true);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Access-Control-Allow-Origin","*")
+    xhr.withCredentials = true;
+    xhr.send(null);
+    //var result = JSON.parse(xhr.response);
+    // now you can access it's params:
+    //console.log(result.data);
+    console.log(xhr.response)
+    console.log(xhr.responseText)
 }
 
 function prikazi_vse(data){
