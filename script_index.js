@@ -7,6 +7,13 @@ let url_brisanje = "https://remajnder.rmk.cloud/api/v1/reminders/" // + reminder
 
 
 $(document).ready(function(){
+    id_vpisa = sessionStorage.getItem("id");
+    name_vpisa = sessionStorage.getItem("name");
+    email_vpisa = sessionStorage.getItem("email");
+    console.log("Id: " + id_vpisa)
+    console.log("Id: " + name_vpisa)
+    console.log("Id: " + email_vpisa)
+    
     $('#add_remajnder').click(function(){
         // dodajanje remajndr
         title = document.getElementById("title").value
