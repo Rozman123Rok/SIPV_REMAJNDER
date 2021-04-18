@@ -46,7 +46,11 @@ function sign_up_user(name, email, phone, pass){
             "password": "` + pass + `"
         }`;
         
+         
         xhr.send(data);  
+        console.log(xhr.status);
+        
+    setTimeout(() => {
         if(xhr.status == 201 || xhr.status == 200){
             console.log("All good")
             uspesn_signup=true
@@ -57,4 +61,5 @@ function sign_up_user(name, email, phone, pass){
         else{
             console.log("Neka napaka")
         }
+    }, 1000);
 }

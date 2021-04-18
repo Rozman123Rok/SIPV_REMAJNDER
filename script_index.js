@@ -104,17 +104,18 @@ function dobi_vse(){
     })*/
     var xhr = new XMLHttpRequest();
 
-    xhr.open('GET', url_vsi, true);
+    xhr.open('GET', "https://remajnder.rmk.cloud/api/v1/reminders", true);
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Access-Control-Allow-Origin","*")
     xhr.withCredentials = true;
     xhr.send(null);
-    //var result = JSON.parse(xhr.response);
+    var result = xhr.response;
     // now you can access it's params:
     //console.log(result.data);
     console.log(xhr.response)
     console.log(xhr.responseText)
+    prikazi_vse(result)
 }
 
 function prikazi_vse(data){
@@ -125,8 +126,8 @@ function prikazi_vse(data){
         const li = document.createElement("li");
         const p = document.createElement("p");
         p.className = "time";
-        p.innerHTML = '<p class="remajnder_formated_class">' + dataa[i].formatted + '</p>'
-        div.innerHTML = '<h2 class="remajnder_title_class + ">' + dataa[i].title + "</h2>" + '<p class="remajnder_desc_class"> ' + dataa[i].desc + "</p>";
+        p.innerHTML = '<p class="remajnder_formated_class">' + data[i].formatted + '</p>'
+        div.innerHTML = '<h2 class="remajnder_title_class + ">' + data[i].title + "</h2>" + '<p class="remajnder_desc_class"> ' + data[i].desc + "</p>";
         div.appendChild(p);
         li.appendChild(div);
 
