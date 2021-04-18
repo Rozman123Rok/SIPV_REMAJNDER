@@ -27,7 +27,22 @@ $(document).ready(function(){
 })
 
 function sign_up_user(name, email, phone, pass){
-    var xhr = new XMLHttpRequest();
+    var data = `{
+        "name": "` + name + `",
+        "email": "` + email + `",
+        "phone_number": "` + phone + `",
+        "password": "` + pass + `"
+    }`;
+
+    axios.post(url_reg, data)
+      .then((response) => {
+        console.log(response);
+        location.replace("login.html")
+      }, (error) => {
+        console.log(error);
+      });
+
+    /*var xhr = new XMLHttpRequest();
         xhr.open("POST", url_reg);
         
         xhr.setRequestHeader("Accept", "application/json");
@@ -61,5 +76,5 @@ function sign_up_user(name, email, phone, pass){
         else{
             console.log("Neka napaka")
         }
-    }, 1000);
+    }, 1000);*/
 }

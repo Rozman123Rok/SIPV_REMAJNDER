@@ -20,7 +20,18 @@ $(document).ready(function(){
 })
 
 function login_user(email, pass){
-    var xhr = new XMLHttpRequest();
+    var data = `{
+        "email": "` + email + `",
+        "password": "` + pass + `"
+    }`;
+    axios.post(url_log, data)
+      .then((response) => {
+        console.log(response);
+        location.replace("index.html")
+      }, (error) => {
+        console.log(error);
+      });
+    /*var xhr = new XMLHttpRequest();
         xhr.open("POST", url_log);
         
         xhr.setRequestHeader("Accept", "application/json");
@@ -55,5 +66,5 @@ function login_user(email, pass){
             else{
                 console.log("Neka napaka")
             }
-        }, 1000);
+        }, 1000);*/
 }

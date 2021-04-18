@@ -61,7 +61,20 @@ $(document).ready(function(){
 
 
 function dodaj_remajnder(title, desc, time, n_phone, n_email){
-    var xhr = new XMLHttpRequest();
+    var data = `{
+        "title": "` + title + `",
+        "description": "` + desc + `",
+        "time": "` + time + `",
+        "notify_phone": "` + n_phone + `",
+        "notify_email": "` + n_email + `"
+    }`;
+    axios.post(url_dodaj, data)
+      .then((response) => {
+        console.log(response);
+      }, (error) => {
+        console.log(error);
+      });
+    /* var xhr = new XMLHttpRequest();
         xhr.open("POST", url_dodaj);
         xhr.withCredentials = true;
         
@@ -75,16 +88,10 @@ function dodaj_remajnder(title, desc, time, n_phone, n_email){
               console.log(xhr.responseText);
            }};
         
-        var data = `{
-            "title": "` + title + `",
-            "description": "` + desc + `",
-            "time": "` + time + `",
-            "notify_phone": "` + n_phone + `",
-            "notify_email": "` + n_email + `"
-        }`;
+        
         
         xhr.send(data);  
-       /* 
+       
         setTimeout(() => {  
             if(xhr.status == 200 || xhr.status == 201){
                 console.log("All good")
@@ -97,11 +104,11 @@ function dodaj_remajnder(title, desc, time, n_phone, n_email){
 }
 
 function dobi_vse(){
-    console.log("Dobi vse")/*
+    /*console.log("Dobi vse")
     $.getJSON(url_vsi, function(result){
         console.log("res: " + result)
        prikazi_vse(result)
-    })*/
+    })
     var xhr = new XMLHttpRequest();
 
     xhr.open('GET', "https://remajnder.rmk.cloud/api/v1/reminders", true);
@@ -115,7 +122,15 @@ function dobi_vse(){
     //console.log(result.data);
     console.log(xhr.response)
     console.log(xhr.responseText)
-    prikazi_vse(result)
+    prikazi_vse(result)*/
+    axios.get(url_vsi)
+  .then((response) => {
+    console.log(response.data);
+    console.log(response.status);
+    console.log(response.statusText);
+    console.log(response.headers);
+    console.log(response.config);
+  });
 }
 
 function prikazi_vse(data){
