@@ -78,3 +78,7 @@ span.psw {
      float: none;
   }
 }
+
+hr.line{
+  border: 2px solid #04fb94;
+}
