@@ -61,19 +61,22 @@ $(document).ready(function(){
 
 
 function dodaj_remajnder(title, desc, time, n_phone, n_email){
-    var isTrueSet_email = (n_email == "true");
-    var isTrueSet_phone = (n_phone == "true");
+    
 
-    console.log("tip: " + typeof(isTrueSet_email))
-
-    var data = `{
+    /*var data = `{
         "title": "` + title + `",
         "description": "` + desc + `",
         "time": "` + time + `",
-        "notify_phone": "` + isTrueSet_phone + `",
-        "notify_email": "` + isTrueSet_email + `"
-    }`;
-    axios.post("/api/v1/reminders", data)
+        "notify_phone": n_phone ",
+        "notify_email": "` + n_email + `"
+    }`;*/
+    axios.post("/api/v1/reminders", {
+        title : title,
+        description: desc,
+        time: time,
+        notify_phone: n_phone,
+        notify_email: n_email
+    })
       .then((response) => {
         console.log(response);
       }, (error) => {
@@ -150,8 +153,8 @@ function prikazi_vse(data){
         const li = document.createElement("li");
         const p = document.createElement("p");
         p.className = "time";
-        p.innerHTML = '<p class="remajnder_formated_class">' + data[i].formatted + '</p>'
-        div.innerHTML = '<h2 class="remajnder_title_class + ">' + data[i].title + "</h2>" + '<p class="remajnder_desc_class"> ' + data[i].desc + "</p>";
+        p.innerHTML = '<p class="remajnder_formated_class">' + data[i].time + '</p>'
+        div.innerHTML = '<h2 class="remajnder_title_class + ">' + data[i].title + "</h2>" + '<p class="remajnder_desc_class"> ' + data[i].description + "</p>";
         div.appendChild(p);
         li.appendChild(div);
 
