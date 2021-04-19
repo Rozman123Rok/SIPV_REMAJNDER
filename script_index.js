@@ -61,14 +61,19 @@ $(document).ready(function(){
 
 
 function dodaj_remajnder(title, desc, time, n_phone, n_email){
+    var isTrueSet_email = (n_email == "true");
+    var isTrueSet_phone = (n_phone == "true");
+
+    console.log("tip: " + typeof(isTrueSet_email))
+
     var data = `{
         "title": "` + title + `",
         "description": "` + desc + `",
         "time": "` + time + `",
-        "notify_phone": "` + n_phone + `",
-        "notify_email": "` + n_email + `"
+        "notify_phone": "` + isTrueSet_phone + `",
+        "notify_email": "` + isTrueSet_email + `"
     }`;
-    axios.post(url_dodaj, data)
+    axios.post("/api/v1/reminders", data)
       .then((response) => {
         console.log(response);
       }, (error) => {
@@ -123,14 +128,18 @@ function dobi_vse(){
     console.log(xhr.response)
     console.log(xhr.responseText)
     prikazi_vse(result)*/
-    axios.get(url_vsi)
+    axios.get("/api/v1/reminders")
   .then((response) => {
     console.log(response.data);
     console.log(response.status);
     console.log(response.statusText);
     console.log(response.headers);
     console.log(response.config);
+
+    prikazi_vse(response.data)
   });
+
+
 }
 
 function prikazi_vse(data){

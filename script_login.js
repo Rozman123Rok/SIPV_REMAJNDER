@@ -24,7 +24,8 @@ function login_user(email, pass){
         "email": "` + email + `",
         "password": "` + pass + `"
     }`;
-    axios.post(url_log, data)
+
+    axios.post("/api/v1/login", data)
       .then((response) => {
         console.log(response);
         location.replace("index.html")

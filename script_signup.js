@@ -34,7 +34,7 @@ function sign_up_user(name, email, phone, pass){
         "password": "` + pass + `"
     }`;
 
-    axios.post(url_reg, data)
+    axios.post("/api/v1/register", data)
       .then((response) => {
         console.log(response);
         location.replace("login.html")
