@@ -6,7 +6,10 @@ let url_urejanje = "https://remajnder.rmk.cloud/api/v1/reminders/" // + reminder
 let url_brisanje = "https://remajnder.rmk.cloud/api/v1/reminders/" // + reminderId
 
 
+
 $(document).ready(function(){
+    
+  
     id_vpisa = sessionStorage.getItem("id");
     name_vpisa = sessionStorage.getItem("name");
     email_vpisa = sessionStorage.getItem("email");
@@ -18,6 +21,7 @@ $(document).ready(function(){
         // dodajanje remajndr
         title = document.getElementById("title").value
         desc = document.getElementById("desc").value
+       
         n_phone = document.getElementById("n_phone").checked
         n_email = document.getElementById("n_email").checked
         const date = new Date(); // DOBIM DATUM
