@@ -8,8 +8,6 @@ let url_brisanje = "https://remajnder.rmk.cloud/api/v1/reminders/" // + reminder
 
 
 $(document).ready(function(){
-    
-  
     id_vpisa = sessionStorage.getItem("id");
     name_vpisa = sessionStorage.getItem("name");
     email_vpisa = sessionStorage.getItem("email");
@@ -21,19 +19,16 @@ $(document).ready(function(){
         // dodajanje remajndr
         title = document.getElementById("title").value
         desc = document.getElementById("desc").value
-       
         n_phone = document.getElementById("n_phone").checked
         n_email = document.getElementById("n_email").checked
         const date = new Date(); // DOBIM DATUM
         //RFC 3339 format
         const formatted = date.toISOString(); // SI SHRANIMO FORMAT
 
-
         console.log(title)
         console.log(desc)
         console.log(n_phone)
         console.log(n_email)
-
         // PRIKAZOVANJE SPOROCIL
         const div = document.createElement("div");
         div.className = "remajnder_class";
@@ -50,17 +45,14 @@ $(document).ready(function(){
 
         dodaj_remajnder(title, desc, formatted, n_phone, n_email)
 
-        
         // prazno
         document.getElementById("title").value = ""
         document.getElementById("desc").value = ""
         document.getElementById("n_phone").checked = false
         document.getElementById("n_email").checked = false
-
     })
 
     dobi_vse()
-
 })
 
 
