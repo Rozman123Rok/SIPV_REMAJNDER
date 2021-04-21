@@ -14,16 +14,25 @@ $(document).ready(function(){
     console.log("Id: " + id_vpisa)
     console.log("Id: " + name_vpisa)
     console.log("Id: " + email_vpisa)
-    
+
+    $("#basicDate").flatpickr({
+        enableTime: true,
+        dateFormat: "F, d Y H:i"
+    });
+
+
     $('#add_remajnder').click(function(){
         // dodajanje remajndr
         title = document.getElementById("title").value
         desc = document.getElementById("desc").value
         n_phone = document.getElementById("n_phone").checked
         n_email = document.getElementById("n_email").checked
+        datum = document.getElementById("basicDate").value
+        console.log(datum)
         const date = new Date(); // DOBIM DATUM
         //RFC 3339 format
         const formatted = date.toISOString(); // SI SHRANIMO FORMAT
+
 
         console.log(title)
         console.log(desc)
@@ -52,7 +61,7 @@ $(document).ready(function(){
         document.getElementById("n_email").checked = false
     })
 
-    dobi_vse()
+    //dobi_vse()
 })
 
 
