@@ -33,7 +33,7 @@ $(document).ready(function(){
         const li = document.createElement("li");
         const p = document.createElement("p");
         p.className = "time";
-        p.innerHTML = '<p class="remajnder_formated_class">' + ate + '</p>'
+        p.innerHTML = '<p class="remajnder_formated_class">' + datum + '</p>'
         div.innerHTML = '<h2 class="remajnder_title_class + ">' + title + "</h2>" + '<p class="remajnder_desc_class"> ' + desc + "</p>";
         div.appendChild(p);
         li.appendChild(div);
@@ -41,7 +41,7 @@ $(document).ready(function(){
         document.getElementById("remajnders").appendChild(li);
         window.scrollTo(0, document.body.scrollHeight);
 
-        dodaj_remajnder(title, desc, formatted, n_phone, n_email)
+        dodaj_remajnder(title, desc, ate, n_phone, n_email)
 
         // prazno
         document.getElementById("title").value = ""
