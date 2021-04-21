@@ -11,9 +11,6 @@ $(document).ready(function(){
     id_vpisa = sessionStorage.getItem("id");
     name_vpisa = sessionStorage.getItem("name");
     email_vpisa = sessionStorage.getItem("email");
-    console.log("Id: " + id_vpisa)
-    console.log("Id: " + name_vpisa)
-    console.log("Id: " + email_vpisa)
 
     $("#basicDate").flatpickr({
         enableTime: true,
@@ -28,28 +25,15 @@ $(document).ready(function(){
         n_phone = document.getElementById("n_phone").checked
         n_email = document.getElementById("n_email").checked
         datum = document.getElementById("basicDate").value
-        //console.log(datum.format())
-
-        console.log("S mom")
         var ate = moment(datum).utc().format();
-        console.log(ate)
 
-        const date = new Date(); // DOBIM DATUM
-        //RFC 3339 format
-        const formatted = date.toISOString(); // SI SHRANIMO FORMAT
-
-
-        console.log(title)
-        console.log(desc)
-        console.log(n_phone)
-        console.log(n_email)
         // PRIKAZOVANJE SPOROCIL
         const div = document.createElement("div");
         div.className = "remajnder_class";
         const li = document.createElement("li");
         const p = document.createElement("p");
         p.className = "time";
-        p.innerHTML = '<p class="remajnder_formated_class">' + formatted + '</p>'
+        p.innerHTML = '<p class="remajnder_formated_class">' + ate + '</p>'
         div.innerHTML = '<h2 class="remajnder_title_class + ">' + title + "</h2>" + '<p class="remajnder_desc_class"> ' + desc + "</p>";
         div.appendChild(p);
         li.appendChild(div);
@@ -66,20 +50,11 @@ $(document).ready(function(){
         document.getElementById("n_email").checked = false
     })
 
-    //dobi_vse()
+    dobi_vse()
 })
 
 
 function dodaj_remajnder(title, desc, time, n_phone, n_email){
-    
-
-    /*var data = `{
-        "title": "` + title + `",
-        "description": "` + desc + `",
-        "time": "` + time + `",
-        "notify_phone": n_phone ",
-        "notify_email": "` + n_email + `"
-    }`;*/
     axios.post("/api/v1/reminders", {
         title : title,
         description: desc,
@@ -92,55 +67,9 @@ function dodaj_remajnder(title, desc, time, n_phone, n_email){
       }, (error) => {
         console.log(error);
       });
-    /* var xhr = new XMLHttpRequest();
-        xhr.open("POST", url_dodaj);
-        xhr.withCredentials = true;
-        
-        xhr.setRequestHeader("Accept", "application/json");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.setRequestHeader("Access-Control-Allow-Origin","*")
-        
-        xhr.onreadystatechange = function () {
-           if (xhr.readyState === 4) {
-              console.log(xhr.status);
-              console.log(xhr.responseText);
-           }};
-        
-        
-        
-        xhr.send(data);  
-       
-        setTimeout(() => {  
-            if(xhr.status == 200 || xhr.status == 201){
-                console.log("All good")
-            }
-            else{
-                console.log("Neka napaka")
-            }
-        }, 1000);
-        */
 }
 
 function dobi_vse(){
-    /*console.log("Dobi vse")
-    $.getJSON(url_vsi, function(result){
-        console.log("res: " + result)
-       prikazi_vse(result)
-    })
-    var xhr = new XMLHttpRequest();
-
-    xhr.open('GET', "https://remajnder.rmk.cloud/api/v1/reminders", true);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Access-Control-Allow-Origin","*")
-    xhr.withCredentials = true;
-    xhr.send(null);
-    var result = xhr.response;
-    // now you can access it's params:
-    //console.log(result.data);
-    console.log(xhr.response)
-    console.log(xhr.responseText)
-    prikazi_vse(result)*/
     axios.get("/api/v1/reminders")
   .then((response) => {
     console.log(response.data);
@@ -151,8 +80,6 @@ function dobi_vse(){
 
     prikazi_vse(response.data)
   });
-
-
 }
 
 function prikazi_vse(data){

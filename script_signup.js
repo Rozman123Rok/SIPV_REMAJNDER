@@ -17,11 +17,6 @@ $(document).ready(function(){
         phone = document.getElementById("phone_signup").value
         geslo1 = document.getElementById("password_signup").value
         geslo2 = document.getElementById("password_signup2").value
-        console.log("ime: " + ime)
-        console.log("email: " + email)
-        console.log("phone: " + phone)
-        console.log("pass: " + geslo1)
-        console.log("pass2: " + geslo2)
         sign_up_user(ime, email, phone, geslo1)
     })
 })
@@ -41,40 +36,4 @@ function sign_up_user(name, email, phone, pass){
       }, (error) => {
         console.log(error);
       });
-
-    /*var xhr = new XMLHttpRequest();
-        xhr.open("POST", url_reg);
-        
-        xhr.setRequestHeader("Accept", "application/json");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        
-        xhr.onreadystatechange = function () {
-           if (xhr.readyState === 4) {
-              console.log(xhr.status);
-              console.log(xhr.responseText);
-           }};
-        
-        var data = `{
-            "name": "` + name + `",
-            "email": "` + email + `",
-            "phone_number": "` + phone + `",
-            "password": "` + pass + `"
-        }`;
-        
-         
-        xhr.send(data);  
-        console.log(xhr.status);
-        
-    setTimeout(() => {
-        if(xhr.status == 201 || xhr.status == 200){
-            console.log("All good")
-            uspesn_signup=true
-            $("#home_nav").show();
-            $("#re_nav").show(); 
-            location.replace("index.html")
-        }
-        else{
-            console.log("Neka napaka")
-        }
-    }, 1000);*/
 }
