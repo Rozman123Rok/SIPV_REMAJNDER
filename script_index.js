@@ -28,7 +28,12 @@ $(document).ready(function(){
         n_phone = document.getElementById("n_phone").checked
         n_email = document.getElementById("n_email").checked
         datum = document.getElementById("basicDate").value
-        console.log(datum)
+        //console.log(datum.format())
+
+        console.log("S mom")
+        var ate = moment(datum).utc().format();
+        console.log(ate)
+
         const date = new Date(); // DOBIM DATUM
         //RFC 3339 format
         const formatted = date.toISOString(); // SI SHRANIMO FORMAT
